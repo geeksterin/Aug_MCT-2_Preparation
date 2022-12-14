@@ -1,0 +1,114 @@
+Print Odd Elements of Array inline----------------------
+public static void main(String[] args) {
+     Scanner sc = new Scanner(System.in);
+        int n=sc.nextInt();
+        int [] arr = new int[n];
+        for(int i=0; i<n;i++){
+            arr[i] = sc.nextInt();
+        }
+        
+        //printing odd values
+        for(int a: arr){
+            if(a%2 !=0){
+                System.out.print(a+" ");
+            }
+        }
+    }
+    
+    
+   Print Alternate Array Elements Linewise---------------------
+   public static void main(String[] args) {
+         Scanner sc = new Scanner(System.in);
+        int n=sc.nextInt();
+        int [] arr = new int[n];
+        for(int i=0; i<n;i++){
+            arr[i] = sc.nextInt();
+        }
+        
+        //printing alternate elements
+        for(int i=0; i<n;i++){
+            if(i%2==0){
+                System.out.println(arr[i]);
+            }
+        } 
+    }
+
+
+Print Array Elements Reverse linewise-----------------------------------
+public static void main(String[] args) {
+     Scanner sc = new Scanner(System.in);
+        int n=sc.nextInt();
+        int [] arr = new int[n];
+        for(int i=0; i<n;i++){
+            arr[i] = sc.nextInt();
+        }  
+        for(int i = n-1; i>=0; i--){
+            System.out.print(arr[i]+" ");
+        }
+    }
+    
+    
+ Print indexes where array elements are odd-----------------------------
+ public static void main(String[] args) {
+     Scanner sc = new Scanner(System.in);
+        int n=sc.nextInt();
+        int [] arr = new int[n];
+        for(int i=0; i<n;i++){
+            arr[i] = sc.nextInt();
+        }
+        
+        for(int i=0; i<n;i++){
+            if(arr[i] % 2 !=0){ // checking for odd value
+                System.out.print(i+" ");// print index
+            }
+        }
+    }
+    
+    
+    
+  Check if two arrays are identical?------------------------------
+  public static void main(String[] args) {
+        Scanner sc =new Scanner(System.in);
+        int n =sc.nextInt();
+        int[] arr1 = new int[n];
+        for(int i=0;i<n;i++){
+            arr1[i]=sc.nextInt();
+        }
+        int m =sc.nextInt();
+        int[] arr2 = new int[m];
+        for(int i=0;i<m;i++){
+            arr2[i]=sc.nextInt();
+        }
+        if(n!=m){
+            System.out.print("false");
+        } else{  
+            boolean falg = true;
+        for(int i=0;i<n;i++){
+            if(arr1[i]!=arr2[i]){
+            falg = false;
+        }
+       }
+              System.out.print(falg);
+        }
+    }
+    
+    
+    Check if x is present in array or not------------------------------
+    public static void main(String[] args) {
+     Scanner sc = new Scanner(System.in);
+        int n=sc.nextInt();
+        int [] arr = new int[n];
+        for(int i=0; i<n;i++){
+            arr[i] = sc.nextInt();
+        }
+        int ele=sc.nextInt();
+        
+        for(int a:arr){
+            if(ele==a){
+                System.out.println("True");
+                return;
+            }
+        }
+        System.out.println("False");
+        
+    }

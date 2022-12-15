@@ -1,0 +1,190 @@
+
+-----------------------Second Largest in array 2--------------------------
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+       
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int arr[] = new int[n];
+        for(int i=0;i<n;i++)
+        {
+            arr[i] = sc.nextInt();
+        }
+        
+        if(n<=1){
+             System.out.println(-2147483648);
+        }
+        
+        Arrays.sort(arr);
+        for(int i= n-2; i>=0; i--){
+          if(arr[i]!=arr[n-1]){
+            System.out.println(arr[i]);
+            return;
+        }
+        }
+            System.out.println(-2147483648);
+        }
+       
+    }
+     
+ -------------------------GKSTR36 Count_IndexValue_Element--------------------------
+    import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+       int n = sc.nextInt();
+        int[] arr = new int[n];
+        for(int i=0; i<n;i++){
+            arr[i]=sc.nextInt();
+        }
+        
+        int count=0;
+        for(int i=0; i<n; i++){
+            if(arr[i]==i){
+                count++;
+            }
+        }
+        System.out.println(count);
+    }
+}
+
+
+
+--------------Maximum of Array-------------------------
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+       int n = sc.nextInt();
+        int[] arr = new int[n];
+        for(int i=0; i<n;i++){
+            arr[i]=sc.nextInt();
+        }
+        
+        int max=0;
+        for(int val:arr){
+            if(val>max){
+                max=val;
+            }
+        }
+        System.out.println(max);
+    }
+}
+
+
+
+------------------GKSTR35 Count_Even---------------------------
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+       int n = sc.nextInt();
+        int[] arr = new int[n];
+        for(int i=0; i<n;i++){
+            arr[i]=sc.nextInt();
+        }
+        
+        int count =0;
+        for(int val:arr){
+            if(val%2==0){
+                count++;
+            }
+        }
+        System.out.print(count);
+    }
+}
+
+------------------------Sum of all Elements of Array---------------------
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+       int n = sc.nextInt();
+        int[] arr = new int[n];
+        for(int i=0; i<n;i++){
+            arr[i]=sc.nextInt();
+        }
+        
+        int max =0;
+        for(int val:arr){
+            max = max+val;
+        }
+        System.out.print(max);
+    }
+}
+
+
+-------------------Odd Even 11-----------------------------------------
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+       int n = sc.nextInt();
+        int[] arr = new int[n];
+        for(int i=0; i<n;i++){
+            arr[i]=sc.nextInt();
+        }
+        
+        //printing odd values
+        for(int val:arr){
+            if(val%2!=0){
+                System.out.print(val+" ");
+            }
+        }
+        System.out.println();
+        
+        //printing even values
+        for(int val:arr){
+            if(val%2==0){
+                System.out.print(val+" ");
+            }
+        }
+        
+        
+    }
+}
+
+
+---------------------Print first index of x in array---------------------------
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+       int n = sc.nextInt();
+        int[] arr = new int[n];
+        for(int i=0; i<n;i++){
+            arr[i]=sc.nextInt();
+        }
+        int val = sc.nextInt();
+        
+        for(int i=0; i<n;i++){
+            if(val==arr[i]){
+                System.out.println(i);
+                return;
+            }
+        }
+        System.out.println(-1);
+    }
+}

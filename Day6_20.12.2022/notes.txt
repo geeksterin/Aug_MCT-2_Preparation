@@ -1,0 +1,213 @@
+//form the largest number-------------------------
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+      Scanner sc=new Scanner(System.in);
+      int n=sc.nextInt();
+        int[] arr = new int[n];
+        for(int i=0; i<n;i++){
+            arr[i]=sc.nextInt();
+        }
+        //converted int array into string array
+        String[] s= new String[n];
+        for(int i=0; i<n;i++){
+            s[i]=String.valueOf(arr[i]);
+        }
+        
+        //sorted my string array according to the question need 
+        Arrays.sort(s, (a,b) -> (b+a).compareTo(a+b));// (46 , 9) -> 469, 946
+        
+        StringBuilder sb=new StringBuilder();
+        for(String str:s){
+            sb.append(str);
+        }
+        String result = sb.toString();
+        System.out.print(result.startsWith("0")?"0":result);
+        //condition?true:false
+        
+    }
+}
+
+
+//Rotate right--------------------------------
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    
+     public static int[] reverse(int[] arr, int li, int ri){
+        while(li<ri){
+            int temp = arr[li];
+            arr[li] = arr[ri];
+            arr[ri] = temp;
+            li++;
+            ri--;
+        }
+         return arr;
+    }
+
+    public static void main(String[] args) {        
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] nums = new int[n];
+        for(int i=0;i<n;i++){
+            nums[i] = sc.nextInt();
+        }  
+        int k = sc.nextInt();
+        
+         // if k==n, than after k right rotations I'll get the same array
+        // k=1,n+1
+        //k=1 [1,2,3,4,5,6,7] ->  [7,1,2,3,4,5,6]
+        //k=9 [1,2,3,4,5,6,7] ->  [6,7,1,2,3,4,5]
+        k=k%nums.length; // 15%7=1
+        //[1,2,3,4,5,6,7] k=3
+       int[] arr = reverse(nums,0,nums.length-1-k);// [4,3,2,1,5,6,7] // (0, n-1-k)
+        arr = reverse(arr,arr.length-k,arr.length-1);//[4,3,2,1,7,6,5] // (n-k, n-1)
+        arr= reverse(arr,0, arr.length-1);//[5,6,7,1,2,3,4]  //(0, n-1)
+        for(int ele:arr){
+            System.out.print(ele+" ");
+        }
+    }
+}
+
+
+
+//Max product subarray---------------------------
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+      int n=sc.nextInt();
+        int[] arr = new int[n];
+        for(int i=0; i<n;i++){
+            arr[i]=sc.nextInt();
+        }
+        int product =1;
+        int maxProduct=1;
+        
+        for(int i=0; i<n;i++){
+            for(int j=i; j<n;j++){
+                product=1;
+                for(int k=i; k<=j; k++){
+                   product*=arr[k];
+                }
+               maxProduct=Math.max(maxProduct,product);
+            }
+        }
+         System.out.println(maxProduct);
+    }
+}
+
+
+//Max Sum sub array----------------------------------
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+      int n=sc.nextInt();
+        int[] arr = new int[n];
+        for(int i=0; i<n;i++){
+            arr[i]=sc.nextInt();
+        }
+        int sum =0;
+        int maxSum=0;
+        
+        for(int i=0; i<n;i++){
+            for(int j=i; j<n;j++){
+                sum=0;
+                for(int k=i; k<=j; k++){
+                   sum+=arr[k];
+                }
+               maxSum=Math.max(maxSum,sum);
+            }
+        }
+         System.out.println(maxSum);
+    }
+}
+
+
+//Bubble sort------------------------------------
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    
+    public static int[] bubbleSort(int arr[]){
+        int n=arr.length;
+        for(int i=0; i<n-1;i++){
+            for(int j=0;j<n-1;j++){
+                if(arr[j]>arr[j+1]){
+                    int temp=arr[j];
+                    arr[j]=arr[j+1];
+                    arr[j+1]=temp;
+                }
+            }
+        }
+        return arr;
+        
+    }
+
+    public static void main(String[] args) {
+      Scanner sc=new Scanner(System.in);
+      int n=sc.nextInt();
+        int[] arr = new int[n];
+        for(int i=0; i<n;i++){
+            arr[i]=sc.nextInt();
+        }
+        int[] ans=bubbleSort(arr);
+        for(int ele:ans){
+            System.out.print(ele+" ");
+        }
+    }
+    
+    //Bubble Sort
+    
+}
+
+
+
+//selection sort-------------------------
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+      Scanner sc=new Scanner(System.in);
+      int n=sc.nextInt();
+        int[] arr = new int[n];
+        for(int i=0; i<n;i++){
+            arr[i]=sc.nextInt();
+        }
+        
+        
+        //selection sort----------------------------------- 9 4 3 8 7 -> 3 9 4 8 7
+        for(int i=0; i<n-1; i++){ // i=0
+            for(int j=i+1; j<n;j++){ //j=2
+                if(arr[i]>arr[j]){// arr[i]=3  arr[j]=4
+                    int temp=arr[i];
+                    arr[i]=arr[j];
+                    arr[j]=temp;
+                }
+            }
+        }
+        
+        for(int ele:arr){
+            System.out.print(ele+" ");
+        }
+        
+        
+        
+        
+        
+    }
+}

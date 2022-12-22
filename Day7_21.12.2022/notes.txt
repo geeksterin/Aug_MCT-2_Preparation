@@ -195,3 +195,59 @@ public class Solution {
 }
 
 
+//find pair-----------------------------------------------
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+       Scanner sc= new Scanner(System.in);
+        
+        // Lets take an array input
+        int n = sc.nextInt();       // size 
+        int arr[] = new int[n];
+        for(int i=0; i<n; i++){
+            arr[i] = sc.nextInt();      // array elements input
+        }
+        
+        // Lets take a target variable,
+        int target = sc.nextInt();          // target
+        
+        // Sort the array 
+        Arrays.sort(arr);
+        
+        // for finding the pair,
+        int left = 0; 
+        int right = arr.length-1;
+        
+        while(left < right){
+            
+            // there are only three base cases, equal, greater and less
+            int sum = arr[left]+arr[right];
+            if(sum == target){
+                System.out.println(arr[left]+" "+arr[right]);
+                
+                // check
+                while(left < right && arr[left] == arr[left+1]){
+                    left++;
+                }
+                // check
+                while(left < right && arr[right] == arr[right-1]){
+                    right--;
+                }
+                
+                left++;
+                right--;
+            }
+            else if(target > sum){
+                left++;
+            }
+            else{
+                right--;
+            }
+        }
+    }
+}
+
+

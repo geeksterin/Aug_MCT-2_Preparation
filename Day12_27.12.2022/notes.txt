@@ -1,0 +1,203 @@
+//print all substrings------------------------------
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();// abc
+        int n = str.length();
+        for(int i=0; i<n; i++){// i=2
+            for(int j=i; j<n; j++){// j=2
+                for(int k =i; k<=j; k++){
+                    System.out.print(str.charAt(k));// a , ab , abc , b, bc, c
+                }
+                System.out.println();
+            }
+        }
+    }
+}
+
+
+
+//Sum of all substring-------------------------------
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        int n = str.length();
+        int sum =0;
+        for(int i=0; i<n; i++){
+            for(int j=i; j<n; j++){
+                String curr = "";
+                for(int k =i; k<=j; k++){
+                    curr = curr+str.charAt(k); //creating sub string
+                    }
+               sum = sum + Integer.parseInt(curr);
+            }
+        }
+        System.out.println(sum);
+    }
+}
+
+
+
+//Desired string-------------------------------------
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        int n = str.length();
+        int count =0;
+        int maxLen =0;
+        String maxStr = "";
+        boolean isExist = false;
+        for(int i=0; i<n; i++){
+            for(int j=i; j<n; j++){
+                String curr = "";
+                for(int k =i; k<=j; k++){
+                    curr = curr+str.charAt(k); //creating sub string
+                    }
+               if(curr.length()>1 && curr.charAt(0)=='A' && curr.charAt(curr.length()-1)=='A'){
+                   count++;
+                   int currLen = curr.length();
+                   if(currLen>maxLen){
+                       maxLen= currLen;
+                       maxStr= curr;
+                   }
+                   isExist = true;
+               }
+            }
+        }
+        if(!isExist){
+            System.out.print(-1);
+        }else{
+            System.out.println(count);
+            System.out.println(maxLen);
+            System.out.println(maxStr);
+        }
+    }
+}
+
+
+
+//check sub sequence-------------------------------------------------
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();// abc
+        String target = sc.nextLine();//afbghidc
+        
+        int n = str.length();// 3
+        int m = target.length();// 8
+        int i=0, j=0;
+        
+        while(i<n && j<m){
+            if(str.charAt(i)== target.charAt(j)){
+                i++;//3
+                j++;//7
+            }else{
+                j++;
+            }
+        }
+        
+        if(i==n){
+            System.out.print("True");
+        }else{
+            System.out.print("False");
+        }
+    }
+}
+
+
+//Max consecutive one-----------------------------------
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        int n = str.length();
+        int count =0;
+        int maxLen =0;
+        for(int i=0; i<n; i++){
+            if(str.charAt(i)=='1'){
+                count++;
+            }else{
+                count=0;
+            }
+            
+            if(count>maxLen){
+                maxLen=count;
+            }
+        }
+        
+        System.out.println(maxLen);
+    }
+}
+
+
+
+
+//Count substring 0 and 1------------------------------------
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    
+    public static int countSubstr(String str, int n){
+        int ans=0;
+        int i=0;
+        while(i<n){//2
+            int count_0=0;//
+            int count_1=0;//
+            if(str.charAt(i)=='0'){//00110011
+                while(i<n && str.charAt(i)=='0'){
+                    count_0++;//2
+                    i++;
+                }
+                int j=i;//2
+                while(j<n && str.charAt(j)=='1'){//
+                    count_1++;//2
+                    j++;
+                }
+            }else{
+                while(i<n && str.charAt(i)=='1'){
+                    count_1++;
+                    i++;
+                }
+                int j=i;
+                while(j<n && str.charAt(j)=='0'){
+                    count_0++;
+                    j++;
+            }
+        }
+            ans+=Math.min(count_0, count_1);
+            
+    }
+        return ans;
+        
+    }
+
+    public static void main(String[] args) {
+         Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        int n = str.length();
+        System.out.println(countSubstr(str, n));
+    }
+}
